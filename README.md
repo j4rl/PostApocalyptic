@@ -1,6 +1,6 @@
-# Atom Wasteland (HTML/CSS/JS/PHP/MySQLi)
+﻿# Atom Wasteland (HTML/CSS/JS/PHP/MySQLi)
 
-En liten pseudo-isometrisk prototyp i en retro-futuristisk (1950-talets atomålder) postapokalyps. Frontend körs i `index.php` med canvas-renderad pseudo-iso 2D, diskreta sprites och SPECIAL-system. PHP + MySQLi hanterar sparning och val-loggning.
+En liten pseudo-isometrisk prototyp i en retro-futuristisk (1950-talets atomålder) postapokalyps. Frontend körs i `index.php` med canvas-renderad hex-grid (nu mer isometrisk projicering), diskreta sprites och SPECIAL-system. PHP + MySQLi hanterar sparning och val-loggning.
 
 ## Starta
 1. Placera projektet i `xampp/htdocs`.
@@ -12,7 +12,8 @@ En liten pseudo-isometrisk prototyp i en retro-futuristisk (1950-talets atomåld
 3. Surfa till `http://localhost/PostApocalyptic/` i XAMPP.
 
 ## Tangenter och UI
-- WASD/piltangenter: flytta runt på det pseudo-isometriska rutnätet.
+- Klicka på en hex-tile i canvas för att auto-navigera dit (A*-sökning på hex-grid, isometrisk projicering med slitet retrofuturistiskt landskap).
+- WASD/piltangenter (plus Q/E) för manuell flytt på hexen.
 - Panelen visar SPECIAL-balkar, val-knappar och logg.
 - `Spara`/`Ladda`: POST/GET mot PHP-backend (failar tyst om DB saknas).
 - Val-knappar räknar ut framgång baserat på relevant SPECIAL + tur (Luck) och loggar i DB.
@@ -20,7 +21,7 @@ En liten pseudo-isometrisk prototyp i en retro-futuristisk (1950-talets atomåld
 ## Filer
 - `index.php` – layout + inlänkar.
 - `assets/css/style.css` – retro-futuristisk Art Deco-inspirerad look.
-- `assets/js/game.js` – canvas-rendering, SPECIAL, val-logik, interaktioner.
+- `assets/js/game.js` – canvas-rendering, SPECIAL, hex-grid (isometrisk), auto-pathing, val-logik.
 - `api/db.php` + `api/schema.php` – MySQLi-anslutning och tabellskapare.
 - `api/save_player.php` / `api/load_player.php` / `api/log_choice.php` – enkla JSON-API:er.
 - `api/setup.sql` – kör för att sätta upp DB-struktur.
